@@ -9,6 +9,9 @@ class App{
   final String  appMemory;
   final String  id;
   final String  description;
+  final String  mobileData;
+  final String  permissions;
+  final String  usedBattery;
 
   final String  imageAssetPath;
 
@@ -20,6 +23,11 @@ class App{
     @required this.imageAssetPath,
     @required this.id,
     @required this.description,
+    @required this.mobileData,
+
+    @required this.permissions,
+    @required this.usedBattery,
+
   });
 
  String  get uniqueTag  => "$id$hashCode";

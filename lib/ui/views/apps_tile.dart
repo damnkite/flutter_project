@@ -2,7 +2,7 @@ import 'package:first_app/mocks/apps_mock.dart';
 import 'package:first_app/models/apps.dart';
 import 'package:first_app/ui/pages/one_app_page.dart';
 import 'package:first_app/ui/views/app_picture.dart';
-import 'package:first_app/ui/views/rounded_corners.dart';
+
 import 'package:flutter/material.dart';
 
 class AppTile extends StatelessWidget {
@@ -57,10 +57,6 @@ class AppTile extends StatelessWidget {
         ),
         SizedBox(height: 4.0),
         Text(_app.appMemory),
-        // Text((_app.time),
-        //   style: TextStyle(
-        //     fontWeight: FontWeight.bold,
-        //   ),),
       ],
     );
   }

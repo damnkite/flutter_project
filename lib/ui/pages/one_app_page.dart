@@ -1,7 +1,11 @@
+
+
 import 'package:first_app/models/apps.dart';
 import 'package:first_app/resources/app_strings.dart';
 import 'package:first_app/ui/views/app_picture.dart';
 import 'package:flutter/material.dart';
+
+import 'fullScreenPicture.dart';
 
 class OneAppPage extends StatelessWidget {
 
@@ -21,7 +25,7 @@ class OneAppPage extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
-        child: _buildPageContent(),
+        child: _buildPageContent(context),
       ),
     );
   }
@@ -36,109 +40,137 @@ class OneAppPage extends StatelessWidget {
   }
 
 
-
-
-  Widget _buildPageContent() {
-    return Column(
+  Widget _buildPageContent(BuildContext context) {
+    return
+     SingleChildScrollView(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildAppPicture(),
-        SizedBox(height: 10.0),
+        _buildAppPicture(context, app),
+        SizedBox(height: 20.0),
         _buildName(),
-        SizedBox(height: 10.0),
+        SizedBox(height: 5.0),
         _buildDescription(),
         SizedBox(height: 10.0),
-        _buildMemory(),
-        SizedBox(height: 20.0),
+        Container(
+          margin: EdgeInsets.all(7),
+          padding: EdgeInsets.all(7),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.indigo[50],
+            borderRadius: new BorderRadius.circular(25),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children:[
+              _buildMobileData(),
+              _buildMemory(),
+              _buildBattery(),
+              _buildPermissions(),
+          ],
+          ),
+       ),
       ],
+    ),
     );
+
   }
 
-  Widget _buildAppPicture() {
+  Widget _buildAppPicture(BuildContext context, App app) {
     return Center(
+        child: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FullScreenPicture(app: app)));
+    },
+
         child: AppPicture(
           tag: app.uniqueTag,
           assetPath: app.imageAssetPath,
           size: 150.0,
         )
-    );
-  }
-/*
-  Widget _buildPhoneNumber() {
-    return Text(app.phoneNumber, style: TextStyle(
-      fontSize: 18.0,
-      fontStyle: FontStyle.italic,
-      color: Colors.black45,
-    ),
+        ),
     );
   }
 
 
-  Widget _buildFullName() {
-    return Text(app.fullName,
-      style: TextStyle(
-        fontSize: 19.0,
-        color: Colors.black45,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-*/
   Widget _buildName() {
-    return Text(app.appName,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 20.0,
-      ),
-    );
-  }
-/*
-  Widget _buildId(){
-    return Text(app.id,
-      style: TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 25.0,
-    ),
-    );
-  }
-*/
-  Widget _buildDescription() {
-    return Text(app.description,
-      style: TextStyle(
-        fontSize: 18.0,
-        fontStyle: FontStyle.italic,
-        color: Colors.black54,
-        fontWeight: FontWeight.bold,
-      ),
-    );
+    return
+          Text(app.appName,
+          style: TextStyle(
+            color: Colors.black54,
+            fontWeight: FontWeight.bold,
+            fontSize: 30.0,
+          ),
+        );
   }
 
+
+  Widget _buildDescription() {
+    return
+          Text(app.description,
+          style: TextStyle(
+          fontSize: 18.0,
+          //fontStyle: FontStyle.italic,
+          color: Colors.indigo,
+          fontWeight: FontWeight.bold,
+          ),
+          );
+  }
+
+  Widget _descriprionRow(String title, String action, String baseInfo){
+    return  Padding(
+      padding: EdgeInsets.all(12.0),
+      child:  Column(
+        crossAxisAlignment: CrossAxisAlignment.start ,
+        children: [
+          Text(title,
+            style: TextStyle(
+              color: Colors.black54,
+              //fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(height: 5.0),
+          Row(
+            children:[
+              Text(baseInfo,
+                style: TextStyle(
+                  //fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  //fontStyle: FontStyle.italic,
+                  color: Colors.black38,
+                ),
+              ),
+              Text(action,
+                style: TextStyle(
+                  //fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  //fontStyle: FontStyle.italic,
+                  color: Colors.black38,
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildMemory(){
-    return Text(app.appMemory,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 20.0,
-        fontStyle: FontStyle.italic,
-        color: Colors.grey,
-      ),
-    );
+    return  _descriprionRow("Storage", " used in internal srotage", app.appMemory);
   }
 
-/*
-  Widget _buildTime(){
-    return Text(app.time,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 25.0,
-        fontStyle: FontStyle.italic,
-        color: Colors.grey,
-      ),
-    );
-
+  Widget _buildBattery(){
+    return  _descriprionRow("Battery", " used since last fully charged", app.usedBattery);
   }
-*/
 
+  Widget _buildMobileData(){
+    return  _descriprionRow("Mobile data", " used since Nov 28", app.mobileData);
+  }
+
+  Widget _buildPermissions(){
+    return  _descriprionRow("Permissions", "", app.permissions);
+  }
 }
 
 

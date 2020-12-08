@@ -2,7 +2,7 @@ class AppImageAssets {
 
   AppImageAssets._();
 
-  static const man1 = "assets/man_1.jpg";
+  static const android = "assets/andoid.png";
 
   static const google = "assets/google.png";
   static const instagram = "assets/instagram.png";

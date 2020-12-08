@@ -9,8 +9,11 @@ class AppsMock{
     appName: "Unknown",
     appMemory: "0000",
     id: "#?",
-    imageAssetPath: AppImageAssets.man1,
+    imageAssetPath: AppImageAssets.android,
+    mobileData:"0000",
 
+    permissions:"Unknown",
+    usedBattery:"0000",
   );
 
 
@@ -21,16 +24,22 @@ class AppsMock{
       id: "#1",
       description: "Standart application",
       imageAssetPath: AppImageAssets.google,
+      mobileData:"87 MB",
 
+      permissions:"Microphone, Location and Storage",
+      usedBattery:"2%",
     ),
 
     App(
       appName: "Instagram",
       appMemory: "1.4 GB",
       id: "#2",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.instagram,
+      mobileData:"24 MB",
 
+      permissions:"Camera, Microphone and Location",
+      usedBattery:"19%",
 
     ),
 
@@ -41,7 +50,10 @@ class AppsMock{
       id: "#3",
       description: "Standart application",
       imageAssetPath: AppImageAssets.googlemaps,
+      mobileData:"4.5 MB",
 
+      permissions:"Location",
+      usedBattery:"0%",
 
     ),
 
@@ -49,27 +61,36 @@ class AppsMock{
       appName: "LinkedIn",
       appMemory: "145 MB",
       id: "#4",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.linkedin,
+      mobileData:"5 MB",
 
+      permissions:"Contacts, Location and Storage",
+      usedBattery:"1%",
     ),
 
     App(
       appName: "Pinterest",
       appMemory: "470.55 MB",
       id: "#5",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.pinterest,
+      mobileData:"122 MB",
 
+      permissions:"Camera, Contacts and Storage",
+      usedBattery:"6%",
     ),
 
     App(
       appName: "Reddit",
       appMemory: "233.3 MB",
       id: "#6",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.reddit,
+      mobileData:"14 MB",
 
+      permissions:"Microphone, Contacts and Storage",
+      usedBattery:"2%",
 
     ),
 
@@ -77,9 +98,12 @@ class AppsMock{
       appName: "Twitch",
       appMemory: "78 MB",
       id: "#7",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.twitch,
+      mobileData:"50 MB",
 
+      permissions:"Microphone, Location and Storage",
+      usedBattery:"2%",
 
     ),
 
@@ -87,9 +111,12 @@ class AppsMock{
       appName: "Behance",
       appMemory: "554.34 MB",
       id: "#8",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.behance,
+      mobileData:"87 MB",
 
+      permissions:"Microphone, Location and Storage",
+      usedBattery:"0%",
 
     ),
 
@@ -97,9 +124,12 @@ class AppsMock{
       appName: "GitHub",
       appMemory: "287.2 MB",
       id: "#9",
-      description: "Installed application",
+      description: "Installed",
       imageAssetPath: AppImageAssets.github,
+      mobileData:"22 MB",
 
+      permissions:"Storage",
+      usedBattery:"5%",
     ),
     App(
       appName: "Gmail",
@@ -107,7 +137,10 @@ class AppsMock{
       id: "#10",
       description: "Standart application",
       imageAssetPath: AppImageAssets.gmail,
+      mobileData:"91 MB",
 
+      permissions:"Contscts and Storage",
+      usedBattery:"1%",
     ),
   ];
 }
