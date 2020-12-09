@@ -20,6 +20,7 @@ class AppTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool _checkBoolean = false;
     return InkWell(
       onTap: (){
         Navigator.of(context).push(

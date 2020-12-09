@@ -3,6 +3,7 @@
 import 'package:first_app/models/apps.dart';
 import 'package:first_app/resources/app_strings.dart';
 import 'package:first_app/ui/views/app_picture.dart';
+import 'package:first_app/ui/views/messageBox.dart';
 import 'package:flutter/material.dart';
 
 import 'fullScreenPicture.dart';
@@ -27,7 +28,31 @@ class OneAppPage extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: _buildPageContent(context),
       ),
-    );
+      bottomNavigationBar: new BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: new Row(
+
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 5.0),
+            IconButton(
+              onPressed: () {showAlertDialog(context);},
+              icon: Icon(Icons.open_in_new),
+            ),
+            IconButton(
+              onPressed: () {showAlertDialog(context);},
+              icon: Icon(Icons.delete_forever),
+            ),
+            IconButton(
+              onPressed: () {showAlertDialog(context);},
+              icon: Icon(Icons.share),
+            ),
+            SizedBox(width: 5.0),
+          ],
+        ),
+      ),
+      );
+
   }
 
   Widget _buidBackButton(BuildContext context) {
