@@ -28,7 +28,8 @@ class App{
     @required this.permissions,
     @required this.usedBattery,
 
-  });
+  }
+  );
 
  String  get uniqueTag  => "$id$hashCode";
 }

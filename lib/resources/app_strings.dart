@@ -1,13 +1,8 @@
 class AppStrings{
 
-
   AppStrings._();
-
-
   //  My app
   static const appTitle = "Apps navigator";
-
-
 
   //  Home Page
   static const helloMessage = "Hello, World!";

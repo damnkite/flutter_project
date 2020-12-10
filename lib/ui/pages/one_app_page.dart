@@ -3,10 +3,10 @@
 import 'package:first_app/models/apps.dart';
 import 'package:first_app/resources/app_strings.dart';
 import 'package:first_app/ui/views/app_picture.dart';
-import 'package:first_app/ui/views/messageBox.dart';
+import 'package:first_app/ui/views/message_box.dart';
 import 'package:flutter/material.dart';
 
-import 'fullScreenPicture.dart';
+import 'full_screen_picture.dart';
 
 class OneAppPage extends StatelessWidget {
 
@@ -68,51 +68,53 @@ class OneAppPage extends StatelessWidget {
   Widget _buildPageContent(BuildContext context) {
     return
      SingleChildScrollView(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildAppPicture(context, app),
-        SizedBox(height: 20.0),
-        _buildName(),
-        SizedBox(height: 5.0),
-        _buildDescription(),
-        SizedBox(height: 10.0),
-        Container(
-          margin: EdgeInsets.all(7),
-          padding: EdgeInsets.all(7),
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.indigo[50],
-            borderRadius: new BorderRadius.circular(25),
-          ),
-          child: Column(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:[
-              _buildMobileData(),
-              _buildMemory(),
-              _buildBattery(),
-              _buildPermissions(),
-          ],
-          ),
-       ),
-      ],
-    ),
-    );
-
+            children: [
+              _buildAppPicture(context, app),
+              SizedBox(height: 20.0),
+              _buildName(),
+              SizedBox(height: 5.0),
+              _buildDescription(),
+              SizedBox(height: 10.0),
+              Container(
+                margin: EdgeInsets.all(7),
+                padding: EdgeInsets.all(7),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.indigo[50],
+                  borderRadius: new BorderRadius.circular(25),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children:[
+                    _buildMobileData(),
+                    _buildMemory(),
+                    _buildBattery(),
+                    _buildPermissions(),
+                  ],
+                ),
+              ),
+            ],
+        ),
+     );
   }
 
   Widget _buildAppPicture(BuildContext context, App app) {
     return Center(
         child: InkWell(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => FullScreenPicture(app: app)));
-    },
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FullScreenPicture(app: app)),
+              );
+            },
 
-        child: AppPicture(
-          tag: app.uniqueTag,
-          assetPath: app.imageAssetPath,
-          size: 150.0,
-        )
+          child: AppPicture(
+            tag: app.uniqueTag,
+            assetPath: app.imageAssetPath,
+            size: 150.0,
+          ),
         ),
     );
   }
@@ -133,12 +135,12 @@ class OneAppPage extends StatelessWidget {
   Widget _buildDescription() {
     return
           Text(app.description,
-          style: TextStyle(
-          fontSize: 18.0,
-          //fontStyle: FontStyle.italic,
-          color: Colors.indigo,
-          fontWeight: FontWeight.bold,
-          ),
+              style: TextStyle(
+              fontSize: 18.0,
+              //fontStyle: FontStyle.italic,
+              color: Colors.indigo,
+              fontWeight: FontWeight.bold,
+              ),
           );
   }
 
@@ -160,20 +162,16 @@ class OneAppPage extends StatelessWidget {
             children:[
               Text(baseInfo,
                 style: TextStyle(
-                  //fontWeight: FontWeight.bold,
                   fontSize: 15.0,
-                  //fontStyle: FontStyle.italic,
                   color: Colors.black38,
                 ),
               ),
               Text(action,
                 style: TextStyle(
-                  //fontWeight: FontWeight.bold,
                   fontSize: 15.0,
-                  //fontStyle: FontStyle.italic,
                   color: Colors.black38,
                 ),
-              )
+              ),
             ],
           ),
         ],

@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/models/apps.dart';
-
 import 'package:first_app/ui/views/app_picture.dart';
-
-
-
-
-
 
 class FullScreenPicture extends StatelessWidget {
 
@@ -33,9 +27,8 @@ class FullScreenPicture extends StatelessWidget {
             tag: app.uniqueTag,
             assetPath: app.imageAssetPath,
             size: 300.0,
-          )
-      )
-      );
-
+          ),
+      ),
+    );
   }
 }

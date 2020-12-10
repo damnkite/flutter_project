@@ -1,7 +1,4 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +13,6 @@ showAlertDialog(BuildContext context) {
   Widget continueButton = FlatButton(
       child: Text("No waiting!"),
       onPressed: null
-
   );
 
   // set up the AlertDialog
@@ -24,7 +20,7 @@ showAlertDialog(BuildContext context) {
     title: Text("You have clicked on button"),
     content: Text(
         "Sorry, the functinality is not ready yet. Please wait for new updates."),
-    actions: [
+      actions: [
       cancelButton,
       continueButton,
     ],
