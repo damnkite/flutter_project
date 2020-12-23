@@ -1,6 +1,6 @@
-# Applications list
+# Applications list on Flutter
 
-A simple Flutter which shows priniples of UI and flutter functionality.
+A simple app which shows priniples of UI and flutter functionality.
 
 ##simply run with main.dart
 
