@@ -1,6 +1,8 @@
 import 'package:first_app/mocks/apps_mock.dart';
 
 import 'package:first_app/resources/app_strings.dart';
+import 'package:first_app/ui/pages/mini_game.dart';
+import 'package:first_app/ui/pages/todos_home_page.dart';
 import 'package:first_app/ui/views/apps_tile.dart';
 import 'package:first_app/ui/views/message_box.dart';
 import 'package:flutter/material.dart';
@@ -36,24 +38,13 @@ class _HomePageState extends State<HomePage> {
         ),
         title: Container(
         padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-        child:_SB ? Text(AppStrings.homePageTitle)
-            :
-        TextField(
-            obscureText: true,
-            style: TextStyle(fontSize: 18.0, color: Color(0xFFbdc6cf)),
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(
-              left: 14.0, bottom: 8.0, top: 8.0),
-              filled: true,
-              fillColor:Colors.white,
-              labelText: 'Enter the name',
-              ),
-          ),
+        child:_SB ? Text(AppStrings.homePageTitle) : _buildSearchField(context),
         ),
         actions: [
           _SB ? IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
+              appBarChange();
             },
           ) : IconButton(
             icon: Icon(Icons.close),
@@ -63,10 +54,12 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
             padding: EdgeInsets.fromLTRB(5, 0, 16, 0),
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.ac_unit),
             onPressed: () {
               if (_SB==false) appBarChange();
-              showAlertDialog(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MiniGame(),
+              ),
+              );
             },
           ),
         ],
@@ -80,6 +73,29 @@ class _HomePageState extends State<HomePage> {
               .toList(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.android),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TodosHomePage(),
+          ),
+          );
+        },
+      ),
     );
   }
+}
+
+Widget _buildSearchField(BuildContext context) {
+  return
+    TextField(
+      obscureText: true,
+      style: TextStyle(fontSize: 18.0, color: Color(0xFFbdc6cf)),
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.only(
+            left: 14.0, bottom: 8.0, top: 8.0),
+        filled: true,
+        fillColor:Colors.white,
+        labelText: 'Enter the name',
+      ),
+    );
 }

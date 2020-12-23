@@ -30,29 +30,33 @@ class OneAppPage extends StatelessWidget {
       ),
       bottomNavigationBar: new BottomAppBar(
         shape: CircularNotchedRectangle(),
-        child: new Row(
-
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 5.0),
-            IconButton(
-              onPressed: () {showAlertDialog(context);},
-              icon: Icon(Icons.open_in_new),
-            ),
-            IconButton(
-              onPressed: () {showAlertDialog(context);},
-              icon: Icon(Icons.delete_forever),
-            ),
-            IconButton(
-              onPressed: () {showAlertDialog(context);},
-              icon: Icon(Icons.share),
-            ),
-            SizedBox(width: 5.0),
-          ],
-        ),
+        child: _buidBottomMenu(context)
       ),
       );
 
+  }
+
+  Widget _buidBottomMenu(BuildContext context) {
+    return  Row(
+
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        SizedBox(width: 5.0),
+        IconButton(
+          onPressed: () {showAlertDialog(context);},
+          icon: Icon(Icons.open_in_new),
+        ),
+        IconButton(
+          onPressed: () {showAlertDialog(context);},
+          icon: Icon(Icons.delete_forever),
+        ),
+        IconButton(
+          onPressed: () {showAlertDialog(context);},
+          icon: Icon(Icons.share),
+        ),
+        SizedBox(width: 5.0),
+      ],
+    );
   }
 
   Widget _buidBackButton(BuildContext context) {
